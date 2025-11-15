@@ -2,6 +2,7 @@ import qrcode
 import os
 import random
 from urllib.parse import urlparse
+import time
 
 
 # Verifica se a URL é valida, se for retorna a URL.
@@ -76,9 +77,17 @@ def main():
         print("-=" * 30)
 
         # Pergunta para o usuário se ele quer continuar no programa.
-        continuar = input("Deseja continuar? [S/N] ").strip().lower()[0]
+        while True:
+            continuar = input("Deseja continuar? [S/N] ").strip().lower()[0]
+            if continuar != "n" and continuar != "s":
+                print("Opção invalida.")
+            else:
+                break
+
         if continuar == "n":
             os.system('cls' if os.name == 'nt' else 'clear')
+            print("SAINDO DO SISTEMA...")
+            time.sleep(2)
             break
 
 
